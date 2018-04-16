@@ -31,7 +31,7 @@ def hello(event, context):
     server.login(email_user,email_password)
 
     msg = data['time_is']
-    server.sendmail(email_user, email_send, msg.as_string())
+    server.sendmail(email_user, email_send, msg)
     server.quit()
 
     return response
