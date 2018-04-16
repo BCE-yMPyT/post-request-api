@@ -2,10 +2,6 @@ import json
 import logging
 import time
 
-
-
-# time_now = {'time_is': str(int(time.time()))
-
 def hello(event, context):
 
     data = json.loads(event['body'])
@@ -22,12 +18,10 @@ def hello(event, context):
         "body": json.dumps(data),
     }
 
-    return response
-
     import smtplib
     email_user = 'interested.pink@gmail.com'
     email_password = 'Tolik9379992'
-    
+
     email_send = data['email']
 
     server = smtplib.SMTP('smtp.gmail.com',587)
@@ -39,3 +33,5 @@ def hello(event, context):
     msg = data['time_is']
     server.sendmail(email_user, email_send, msg.as_string())
     server.quit()
+
+    return response
