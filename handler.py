@@ -1,3 +1,9 @@
+'''
+This script used AWS Lambda for sending email. When you send
+POST request in API Development Environment in JSON format like:
+{"email": 'your@email.stuff'}, this script will send to your@email.stuff,
+time in UNIX_TIMESTAMP.
+'''
 import json
 import logging
 import time
@@ -19,8 +25,8 @@ def hello(event, context):
     }
 
     import smtplib
-    email_user = 'interested.pink@gmail.com'
-    email_password = 'Tolik9379992'
+    email_user = 'your@email.stuff'
+    email_password = 'your_password'
 
     email_send = data['email']
 
